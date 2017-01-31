@@ -18,7 +18,7 @@ function ConvertJSONToICS(option) {
 	};
 
 	function shellJson(urlString) {
-
+		// не нужно делать лишние переносы строк 
 		let xhr = new XMLHttpRequest();
 		xhr.open('GET', decodeURIComponent(urlString));
 		xhr.send();
@@ -32,7 +32,7 @@ function ConvertJSONToICS(option) {
 				} catch (e) {
 					alert( 'Некорректный ответ ' + e.message );
 				}
-
+				// метод не должен быть больше 20 строк. Желательно разбить эту вермишель на функции и дать им осмысленное значение 
 				for (var i = 0; i < result.length; i++) {
 
 					let resHtml = '';
@@ -92,6 +92,5 @@ var converterJSONtoICS = new ConvertJSONToICS({
 		'METHOD:PUBLISH\r\n',
 		'X-MS-OLK-FORCEINSPECTOROPEN:TRUE\r\n']
 });
-
 
 
